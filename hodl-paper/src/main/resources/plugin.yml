@@ -1,0 +1,8 @@
+name: ${plugin.name}
+main: ${project.groupId}.${project.parent.artifactId}.paper.PaperPlugin
+version: ${plugin.version};${plugin.commit}
+author: '${plugin.author}'
+description: ${plugin.description}
+website: ${plugin.url}
+api-version: 1.13
+folia-supported: true

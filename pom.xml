@@ -64,8 +64,8 @@
         <mongo.version>5.2.1</mongo.version>
 
         <!-- Platform dependencies -->
-        <spigot.version>1.8.8-R0.1-20160221.082514-43</spigot.version>
         <velocity.version>3.1.0</velocity.version>
+        <paper.version>1.21.4-R0.1-SNAPSHOT</paper.version>
 
         <!-- Plugin variables -->
         <plugin.id>hodl</plugin.id>
@@ -84,6 +84,24 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>net.md-5</groupId>
+                    <artifactId>scriptus</artifactId>
+                    <version>0.2</version>
+                    <executions>
+                        <execution>
+                            <phase>initialize</phase>
+                            <configuration>
+                                <format>%s</format>
+                                <scmDirectory>${project.parent.basedir}</scmDirectory>
+                                <descriptionProperty>plugin.commit</descriptionProperty>
+                            </configuration>
+                            <goals>
+                                <goal>describe</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -150,12 +168,7 @@
             </dependency>
             <dependency>
                 <groupId>co.aikar</groupId>
-                <artifactId>acf-core</artifactId>
-                <version>${acf.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>co.aikar</groupId>
-                <artifactId>acf-bukkit</artifactId>
+                <artifactId>acf-paper</artifactId>
                 <version>${acf.version}</version>
             </dependency>
             <dependency>
@@ -167,6 +180,16 @@
                 <groupId>org.mongodb</groupId>
                 <artifactId>mongodb-driver-sync</artifactId>
                 <version>${mongo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.velocitypowered</groupId>
+                <artifactId>velocity-api</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.papermc.paper</groupId>
+                <artifactId>paper-api</artifactId>
+                <version>${paper.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
