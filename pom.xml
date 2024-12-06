@@ -6,11 +6,194 @@
 
     <groupId>com.bongbong</groupId>
     <artifactId>hodl</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>hodl-shared</module>
+        <module>hodl-velocity</module>
+        <module>hodl-paper</module>
+    </modules>
+
+    <name>Hammer</name>
+    <description>The ban hammer has spoken!</description>
+    <url>https://github.com/TheoBong/Hammer</url>
+    <inceptionYear>2024</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, Version 3</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0-standalone.html</url>
+            <distribution>repo</distribution>
+            <comments>Strong copyleft license, commonly known as the GNU AGPL v3</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>tigerbong</id>
+            <name>Theodore Bong</name>
+            <url>https://www.bongbong.com/</url>
+            <roles>
+                <role>creator</role>
+                <role>developer</role>
+            </roles>
+            <timezone>America/Los_Angeles</timezone>
+        </developer>
+        <developer>
+            <id>byteful</id>
+            <url>https://github.com/byteful</url>
+            <roles>
+                <role>creator</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Internal dependencies -->
+        <protocolize.version>2.4.2</protocolize.version>
+        <cirrus.version>3.0.0-SNAPSHOT</cirrus.version>
+        <acf.version>0.5.1-SNAPSHOT</acf.version>
+        <lombok.version>1.18.34</lombok.version>
+        <gson.version>2.9.0</gson.version>
+        <mongo.version>5.2.1</mongo.version>
+
+        <!-- Platform dependencies -->
+        <spigot.version>1.8.8-R0.1-20160221.082514-43</spigot.version>
+        <velocity.version>3.1.0</velocity.version>
+
+        <!-- Plugin variables -->
+        <plugin.id>hodl</plugin.id>
+        <plugin.name>Hodl</plugin.name>
+        <plugin.version>${project.version}-${plugin.timestamp}</plugin.version>
+        <plugin.author>tigerbong, byteful</plugin.author>
+        <plugin.url>https://github.com/bongbong-com/hodl</plugin.url>
+        <plugin.description>${project.description}</plugin.description>
+        <plugin.timestamp>${maven.build.timestamp}</plugin.timestamp>
+
+        <!-- Skip javadocs and sources by default -->
+        <common-parent.skip-javadoc>true</common-parent.skip-javadoc>
+        <common-parent.skip-sources>true</common-parent.skip-sources>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <release>18</release>
+                        <testRelease>18</testRelease>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <createDependencyReducedPom>false</createDependencyReducedPom>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.bongbong</groupId>
+                <artifactId>hodl-shared</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bongbong</groupId>
+                <artifactId>hodl-velocity</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bongbong</groupId>
+                <artifactId>hodl-spigot</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.simplix</groupId>
+                <artifactId>protocolize-api</artifactId>
+                <version>${protocolize.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.simplix.cirrus</groupId>
+                <artifactId>cirrus-api</artifactId>
+                <version>${cirrus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.simplix.cirrus</groupId>
+                <artifactId>cirrus-velocity</artifactId>
+                <version>${cirrus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.simplix.cirrus</groupId>
+                <artifactId>cirrus-spigot</artifactId>
+                <version>${cirrus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>co.aikar</groupId>
+                <artifactId>acf-core</artifactId>
+                <version>${acf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>co.aikar</groupId>
+                <artifactId>acf-bukkit</artifactId>
+                <version>${acf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>co.aikar</groupId>
+                <artifactId>acf-velocity</artifactId>
+                <version>${acf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver-sync</artifactId>
+                <version>${mongo.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>aikar</id>
+            <url>https://repo.aikar.co/content/groups/aikar/</url>
+        </repository>
+        <repository>
+            <id>exceptionflug</id>
+            <url>https://mvn.exceptionflug.de/repository/exceptionflug-public/</url>
+        </repository>
+    </repositories>
 
 </project>
