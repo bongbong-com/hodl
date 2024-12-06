@@ -1,7 +1,16 @@
 package com.bongbong.hodl.paper;
 
+import org.bukkit.plugin.java.JavaPlugin;
 
+public class PaperPlugin extends JavaPlugin {
 
-public class PaperPlugin {
+    @Override
+    public void onEnable() {
+        getLogger().info("Hello world");
+    }
 
+    @Override
+    public void onDisable() {
+
+    }
 }
