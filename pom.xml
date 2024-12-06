@@ -15,9 +15,9 @@
         <module>hodl-paper</module>
     </modules>
 
-    <name>Hammer</name>
-    <description>The ban hammer has spoken!</description>
-    <url>https://github.com/TheoBong/Hammer</url>
+    <name>Hodl</name>
+    <description>Holistic Operator of Data and Logic</description>
+    <url>https://github.com/bongbong-com/hodl</url>
     <inceptionYear>2024</inceptionYear>
 
     <licenses>
