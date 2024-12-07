@@ -19,10 +19,7 @@ import java.nio.file.Path;
         version = PluginInfo.VERSION,
         authors = { PluginInfo.AUTHOR },
         description = PluginInfo.DESCRIPTION,
-        url = PluginInfo.URL,
-        dependencies = {
-                @Dependency(id = "protocolize")
-        })
+        url = PluginInfo.URL)
 public class VelocityPlugin {
     private final PluginContainer plugin;
     private final ProxyServer server;
