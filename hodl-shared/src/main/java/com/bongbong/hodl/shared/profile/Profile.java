@@ -1,4 +1,6 @@
 package com.bongbong.hodl.shared.profile;
 
-public record Profile() {
+import java.util.UUID;
+
+public record Profile(UUID playerId) {
 }
