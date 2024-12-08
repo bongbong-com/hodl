@@ -56,8 +56,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Internal dependencies -->
-        <protocolize.version>2.4.2</protocolize.version>
-        <cirrus.version>3.0.0-SNAPSHOT</cirrus.version>
         <acf.version>0.5.1-SNAPSHOT</acf.version>
         <lombok.version>1.18.34</lombok.version>
         <gson.version>2.9.0</gson.version>
@@ -149,26 +147,6 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>dev.simplix</groupId>
-                <artifactId>protocolize-api</artifactId>
-                <version>${protocolize.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>dev.simplix.cirrus</groupId>
-                <artifactId>cirrus-api</artifactId>
-                <version>${cirrus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>dev.simplix.cirrus</groupId>
-                <artifactId>cirrus-velocity</artifactId>
-                <version>${cirrus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>dev.simplix.cirrus</groupId>
-                <artifactId>cirrus-spigot</artifactId>
-                <version>${cirrus.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>co.aikar</groupId>
                 <artifactId>acf-paper</artifactId>
                 <version>${acf.version}</version>
@@ -214,10 +192,6 @@
         <repository>
             <id>aikar</id>
             <url>https://repo.aikar.co/content/groups/aikar/</url>
-        </repository>
-        <repository>
-            <id>exceptionflug</id>
-            <url>https://mvn.exceptionflug.de/repository/exceptionflug-public/</url>
         </repository>
     </repositories>
 
