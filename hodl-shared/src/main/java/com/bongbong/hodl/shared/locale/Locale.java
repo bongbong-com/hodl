@@ -5,6 +5,9 @@ import net.kyori.adventure.text.Component;
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
 
+/**
+ * A simple hard-coded locale system that makes arguments easy to parse.
+ */
 public interface Locale {
     Args0 HELLO_WORLD = () -> text("Hello world!", GREEN);
 

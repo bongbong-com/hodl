@@ -1,4 +1,10 @@
 package com.bongbong.hodl.shared.profile;
 
-public record ProfileChunkClaim(String world, int x, int z) {
+/**
+ * Represents a claim for a chunk based on its world location.
+ *
+ * @param x the chunk x
+ * @param z the chunk z
+ */
+public record ProfileChunkClaim(int x, int z) {
 }

@@ -2,11 +2,15 @@ package com.bongbong.hodl.shared.data.impl;
 
 import com.bongbong.hodl.shared.data.DataStore;
 import com.bongbong.hodl.shared.profile.Profile;
+import com.bongbong.hodl.shared.profile.ProfileChunkClaim;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.ReplaceOptions;
 import org.bson.Document;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public class MongoDataStore implements DataStore {
@@ -43,11 +47,17 @@ public class MongoDataStore implements DataStore {
         client.close();
     }
 
+    // TODO: this will need to convert everything to documents
     private Document profileToDocument(Profile profile) {
-        return new Document(); // TODO: update
+        return new Document("_id", profile.playerId())
+                .append("claims", profile.claims())
+                .append("allowedClaimEditors", profile.allowedClaimEditors());
     }
 
     private Profile documentToProfile(UUID playerId, Document document) {
-        return new Profile(playerId);
+        final Map<String, List<ProfileChunkClaim>> claims = document.get("claims", Map.class);
+        final Set<UUID> allowedClaimEditors = document.get("allowedClaimEditors", Set.class);
+
+        return new Profile(playerId, claims, allowedClaimEditors);
     }
 }
