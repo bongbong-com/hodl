@@ -17,8 +17,14 @@
             <artifactId>hodl-shared</artifactId>
         </dependency>
         <dependency>
-            <groupId>co.aikar</groupId>
-            <artifactId>acf-paper</artifactId>
+            <groupId>io.github.revxrsal</groupId>
+            <artifactId>lamp.common</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.revxrsal</groupId>
+            <artifactId>lamp.paper</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.papermc.paper</groupId>

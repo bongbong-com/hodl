@@ -85,6 +85,10 @@
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.revxrsal</groupId>
+            <artifactId>lamp.velocity</artifactId>
+        </dependency>
     </dependencies>
 
     <repositories>
