@@ -44,6 +44,10 @@
                         <annotationProcessor>
                             com.velocitypowered.api.plugin.ap.PluginAnnotationProcessor</annotationProcessor>
                     </annotationProcessors>
+                    <compilerArgs>
+                        <!-- Preserves parameter names -->
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>

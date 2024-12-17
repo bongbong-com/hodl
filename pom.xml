@@ -159,6 +159,11 @@
             </dependency>
             <dependency>
                 <groupId>io.github.revxrsal</groupId>
+                <artifactId>lamp.bukkit</artifactId>
+                <version>${lamp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.revxrsal</groupId>
                 <artifactId>lamp.velocity</artifactId>
                 <version>${lamp.version}</version>
             </dependency>
