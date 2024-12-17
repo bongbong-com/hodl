@@ -5,4 +5,4 @@ author: '${plugin.author}'
 description: ${plugin.description}
 website: ${plugin.url}
 api-version: 1.21
-folia-supported: false
+loader: ${project.groupId}.${project.parent.artifactId}.paper.PaperPluginLoader

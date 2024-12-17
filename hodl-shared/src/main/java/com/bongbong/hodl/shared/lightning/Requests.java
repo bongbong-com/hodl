@@ -18,16 +18,8 @@ public class Requests {
 
     private static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
-    private final OkHttpClient client;
-    private final Gson gson;
 
-    public Requests(OkHttpClient client) {
-        this.client = client;
-        this.gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-    }
-
-
-    public UserManagerCreateResponse createWallet(UUID uuid, String username) {
+    public static UserManagerCreateResponse createWallet(UUID uuid, String username, OkHttpClient client, Gson gson) {
         HttpUrl.Builder urlBuilder
                 = HttpUrl.parse(HOST_BASE_URL_LNBIT + "/usermanager/api/v1/users")
                 .newBuilder();
@@ -56,7 +48,7 @@ public class Requests {
         return null;
     }
 
-    public WalletInfoResponse getWalletBalance(String walletReadKey) {
+    public static WalletInfoResponse getWalletBalance(String walletReadKey, OkHttpClient client, Gson gson) {
         HttpUrl.Builder urlBuilder
                 = HttpUrl.parse(HOST_BASE_URL_LNBIT + "/api/v1/wallet")
                 .newBuilder();
@@ -78,7 +70,7 @@ public class Requests {
         return null;
     }
 
-    public PayResponse payInvoice(String bolt11, String adminKey) {
+    public static PayResponse payInvoice(String bolt11, String adminKey, OkHttpClient client, Gson gson) {
         HttpUrl.Builder urlBuilder
                 = HttpUrl.parse(HOST_BASE_URL_LNBIT + "/api/v1/payments")
                 .newBuilder();
@@ -104,7 +96,7 @@ public class Requests {
         return null;
     }
 
-    public ReceiveResponse createInvoice(int amount, String memo, String adminKey) {
+    public static ReceiveResponse createInvoice(int amount, String memo, String adminKey, OkHttpClient client, Gson gson) {
         HttpUrl.Builder urlBuilder
                 = HttpUrl.parse(HOST_BASE_URL_LNBIT + "/api/v1/payments")
                 .newBuilder();

@@ -3,6 +3,7 @@ package com.bongbong.hodl.shared.data.impl;
 import com.bongbong.hodl.shared.data.DataStore;
 import com.bongbong.hodl.shared.profile.Profile;
 import com.bongbong.hodl.shared.profile.ProfileChunkClaim;
+import com.bongbong.hodl.shared.profile.WalletInfo;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.ReplaceOptions;
@@ -51,13 +52,15 @@ public class MongoDataStore implements DataStore {
     private Document profileToDocument(Profile profile) {
         return new Document("_id", profile.playerId())
                 .append("claims", profile.claims())
-                .append("allowedClaimEditors", profile.allowedClaimEditors());
+                .append("allowedClaimEditors", profile.allowedClaimEditors())
+                .append("wallet", profile.walletInfo());
     }
 
     private Profile documentToProfile(UUID playerId, Document document) {
         final Map<String, List<ProfileChunkClaim>> claims = document.get("claims", Map.class);
         final Set<UUID> allowedClaimEditors = document.get("allowedClaimEditors", Set.class);
+        final WalletInfo walletInfo = document.get("wallet", WalletInfo.class);
 
-        return new Profile(playerId, claims, allowedClaimEditors);
+        return new Profile(playerId, claims, allowedClaimEditors, walletInfo);
     }
 }

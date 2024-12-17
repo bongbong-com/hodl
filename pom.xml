@@ -62,6 +62,7 @@
         <mongo.version>5.2.1</mongo.version>
         <jedis.version>5.2.0</jedis.version>
         <okhttp.version>4.12.0</okhttp.version>
+        <invui.version>1.43</invui.version>
         <adventure.version>4.17.0</adventure.version>
 
         <!-- Platform dependencies -->
@@ -196,6 +197,11 @@
                 <groupId>net.kyori</groupId>
                 <artifactId>adventure-api</artifactId>
                 <version>${adventure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.xenondevs.invui</groupId>
+                <artifactId>invui</artifactId>
+                <version>${invui.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

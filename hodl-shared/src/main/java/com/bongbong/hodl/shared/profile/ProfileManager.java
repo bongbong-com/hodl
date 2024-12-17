@@ -1,5 +1,6 @@
 package com.bongbong.hodl.shared.profile;
 
+import com.bongbong.hodl.shared.lightning.Requests;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,7 +49,7 @@ public interface ProfileManager {
      */
     @NotNull
     default Profile createProfile(@NotNull UUID playerId) {
-        return new Profile(playerId, new HashMap<>(), new HashSet<>());
+        return new Profile(playerId, new HashMap<>(), new HashSet<>(), null);
     }
 
     /**
